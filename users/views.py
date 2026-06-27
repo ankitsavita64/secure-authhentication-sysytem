@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
+# for register api.
 from rest_framework.generics import CreateAPIView
 from .serializers import *
 
-#for login api
+# for login api.
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 
@@ -13,6 +15,7 @@ from rest_framework.response import Response
 class RegisterView(CreateAPIView):
 
     serializer_class = RegisterSerializer
+
 
 class LoginView(GenericAPIView):
 
@@ -34,3 +37,4 @@ class LoginView(GenericAPIView):
         return Response(
             serializer.validated_data
         )
+    
