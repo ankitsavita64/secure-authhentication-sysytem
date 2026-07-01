@@ -13,5 +13,3 @@ __pycache__/
 db.sqlite3
 
 *.pem
-
-.gitignoreexit
