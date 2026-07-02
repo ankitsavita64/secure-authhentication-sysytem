@@ -54,6 +54,6 @@ Tools:
 -CI/CD Pipeline
 
 linkedin link- https://www.linkedin.com/in/ankit-savita-91a3923b3/
-live URL- 
+live URL- http://16.171.164.245:8000/
 
 
