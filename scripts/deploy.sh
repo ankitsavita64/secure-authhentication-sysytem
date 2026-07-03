@@ -23,19 +23,3 @@ docker ps
 echo "======================================="
 echo "✅ Deployment Successful!"
 echo "======================================="
-
-'''
-#!/bin/bash
-
-echo "🚀 Starting deployment..."
-
-git pull origin main
-
-docker compose down
-
-docker compose up -d --build
-
-docker image prune -f
-
-echo "✅ Deployment completed successfully."
-'''
