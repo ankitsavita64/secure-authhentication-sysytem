@@ -1,20 +1,32 @@
-name: Deploy to AWS EC2
+name: Deploy SecureAuth to AWS EC2
 
 on:
   push:
     branches:
       - main
 
+  workflow_dispatch:
+
+concurrency:
+  group: production-deployment
+  cancel-in-progress: true
+
 jobs:
   deploy:
-    name: Deploy Application
+    name: Deploy to Production Server
+
     runs-on: ubuntu-latest
+
+    timeout-minutes: 15
+
+    environment:
+      name: production
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Deploy to EC2
+      - name: Deploy to EC2 Server
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.EC2_HOST }}
