@@ -2,25 +2,27 @@
 
 set -e
 
-# echo "======================================="
-echo " Starting SecureAuth Deployment..."
-# echo "======================================="
+echo "======================================="
+echo "🚀 Starting SecureAuth Deployment..."
+echo "======================================="
 
 cd /home/ubuntu/secure-authhentication-sysytem
 
 echo "📥 Pulling latest code..."
 git pull origin main
 
-echo "Rebuilding containers..."
+echo "🐳 Rebuilding containers..."
 docker compose up -d --build
 
-echo "Cleaning unused Docker images..."
+echo "🧹 Cleaning unused Docker images..."
 docker image prune -f
 
-echo "Running containers:"
+echo "📋 Running containers:"
 docker ps
 
-echo " Deployment Successful!"
+echo "======================================="
+echo "✅ Deployment Successful!"
+echo "======================================="
 
 '''
 #!/bin/bash
