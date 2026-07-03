@@ -8,6 +8,9 @@ echo " Starting SecureAuth Deployment..."
 
 cd /home/ubuntu/secure-authhentication-sysytem
 
+echo "📥 Pulling latest code..."
+git pull origin main
+
 echo "Rebuilding containers..."
 docker compose up -d --build
 
