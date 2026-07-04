@@ -1,14 +1,44 @@
-- name: Deploy to EC2 Server
-  uses: appleboy/ssh-action@v1.2.2
-  with:
-    host: ${{ secrets.EC2_HOST }}
-    username: ${{ secrets.EC2_USERNAME }}
-    key: ${{ secrets.EC2_SSH_KEY }}
-    script: |
-      cd /home/ubuntu/secure-authhentication-sysytem
+name: Deploy SecureAuth to AWS EC2
 
-      git fetch origin
-      git reset --hard origin/main
+on:
+  push:
+    branches:
+      - main
 
-      chmod +x scripts/deploy.sh
-      ./scripts/deploy.sh
+  workflow_dispatch:
+
+concurrency:
+  group: production-deployment
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to Production Server
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 15
+
+    environment:
+      name: production
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to EC2 Server
+        uses: appleboy/ssh-action@v1.2.2
+
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          script: |
+            cd /home/ubuntu/secure-authhentication-sysytem
+
+            git fetch origin
+            git reset --hard origin/main
+
+            chmod +x scripts/deploy.sh
+            ./scripts/deploy.sh
