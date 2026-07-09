@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+SecureAuth
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1>SecureAuth</h1>
+
+<p>Production Authentication Platform</p>
+
+<a href="{% url 'login' %}">
+    <button>Login</button>
+</a>
+
+    <button>Sign Up</button>
+
+{% endblock %}

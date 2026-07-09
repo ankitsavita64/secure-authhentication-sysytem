@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SecureAuth{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+<!-- AI Floating Button -->
+<div class="chat-toggle" id="chatToggle">
+    💬
+</div>
+
+<!-- AI Chat Box -->
+<div class="chat-box" id="chatBox">
+
+    <div class="chat-header">
+        SecureAuth AI
+        <span id="closeChat">✖</span>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+
+        <div class="bot-message">
+            Hello 👋 <br>
+            Ask me anything about SecureAuth.
+        </div>
+
+    </div>
+
+    <div class="chat-footer">
+
+        <input
+            type="text"
+            id="question"
+            placeholder="Type your question..."
+        >
+
+        <button id="sendBtn">
+            Send
+        </button>
+
+    </div>
+
+</div>
+
+<body>
+
+{% block content %}
+{% endblock %}
+
+<script src="{% static 'js/app.js' %}"></script>
+{% block js %}{% endblock %}
+
+</body>
+</html>

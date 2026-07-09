@@ -1,0 +1,47 @@
+body{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100vh;
+
+    flex-direction:column;
+
+}
+
+h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+p{
+
+    font-size:22px;
+
+    color:#666;
+
+    margin-bottom:40px;
+
+}
+
+button{
+
+    padding:14px 30px;
+
+    margin:10px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}

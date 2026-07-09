@@ -21,5 +21,6 @@ from config import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/auth/", include("users.urls")),
-    path("", views.Home, name="home"),
+    path("api/ai/", include("ai_integration.urls")),
+    path("", include("frontend.urls")),
 ]
