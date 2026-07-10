@@ -21,7 +21,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             **validated_data
         )
 
-        return user
+        return print("account created successfully", user)
     
     '''
     from rest_framework import serializers
